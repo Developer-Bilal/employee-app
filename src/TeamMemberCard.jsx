@@ -1,6 +1,10 @@
 import maleProfiles from "./images/maleProfile.jpg";
 import femaleProfiles from "./images/femaleProfile.jpg";
-const TeamMemberCard = (employee, handleEmployeeCardClick, selectedTeam) => {
+const TeamMemberCard = ({
+  employee,
+  handleEmployeeCardClick,
+  selectedTeam,
+}) => {
   return (
     <div
       key={employee.id}

@@ -1,4 +1,4 @@
-import { eventWrapper } from "@testing-library/user-event/dist/utils";
+// import { eventWrapper } from "@testing-library/user-event/dist/utils";
 import { useState } from "react";
 const GroupedTeamMembers = ({ employees, selectedTeam, setSelectedTeam }) => {
   const [groupedEmployees, setGroupedEmployees] = useState(groupTeamMembers());
@@ -9,6 +9,7 @@ const GroupedTeamMembers = ({ employees, selectedTeam, setSelectedTeam }) => {
     let teamAMembers = employees.filter(
       (employee) => employee.teamName === "TeamA"
     );
+
     let teamA = {
       team: "TeamA",
       members: teamAMembers,
@@ -19,6 +20,7 @@ const GroupedTeamMembers = ({ employees, selectedTeam, setSelectedTeam }) => {
     let teamBMembers = employees.filter(
       (employee) => employee.teamName === "TeamB"
     );
+
     let teamB = {
       team: "TeamB",
       members: teamBMembers,
@@ -29,6 +31,7 @@ const GroupedTeamMembers = ({ employees, selectedTeam, setSelectedTeam }) => {
     let teamCMembers = employees.filter(
       (employee) => employee.teamName === "TeamC"
     );
+
     let teamC = {
       team: "TeamC",
       members: teamCMembers,
@@ -39,6 +42,7 @@ const GroupedTeamMembers = ({ employees, selectedTeam, setSelectedTeam }) => {
     let teamDMembers = employees.filter(
       (employee) => employee.teamName === "TeamD"
     );
+
     let teamD = {
       team: "TeamD",
       members: teamDMembers,
@@ -50,11 +54,11 @@ const GroupedTeamMembers = ({ employees, selectedTeam, setSelectedTeam }) => {
   }
 
   function handleTeamClick(event) {
-    let transformedGroupData = groupedEmployees.map((groupedData) => {
+    let transformedGroupData = groupedEmployees.map((groupedData) =>
       groupedData.team === event.currentTarget.id
         ? { ...groupedData, collapsed: !groupedData.collapsed }
-        : groupedData;
-    });
+        : groupedData
+    );
 
     setGroupedEmployees(transformedGroupData);
     setSelectedTeam(event.currentTarget.id);
@@ -83,11 +87,11 @@ const GroupedTeamMembers = ({ employees, selectedTeam, setSelectedTeam }) => {
               <hr />
               {item.members.map((member) => {
                 return (
-                  <div className="mt-2">
+                  <div className="mt-2" key={member.fullName}>
                     <h5 className="card-title mt-2">
-                      <spa className="text-dark">
+                      <span className="text-dark">
                         Full Name: {member.fullName}
-                      </spa>
+                      </span>
                     </h5>
                     <p>Designation: {member.designation}</p>
                   </div>

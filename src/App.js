@@ -114,13 +114,13 @@ function App() {
   }
 
   function handleEmployeeCardClick(event) {
-    const transformedEmployees = employees.map((employee) => {
+    const transformedEmployees = employees.map((employee) =>
       employee.id === parseInt(event.currentTarget.id)
         ? employee.teamName === selectedTeam
           ? { ...employee, teamName: "" }
           : { ...employee, teamName: selectedTeam }
-        : employee;
-    });
+        : employee
+    );
 
     setEmployees(transformedEmployees);
   }
