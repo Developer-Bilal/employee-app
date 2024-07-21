@@ -16,9 +16,13 @@ const TeamMemberCard = ({
       onClick={handleEmployeeCardClick}
     >
       {employee.gender === "male" ? (
-        <img src={maleProfiles} className="card-img-top" />
+        <img src={maleProfiles} className="card-img-top" alt="male profiles" />
       ) : (
-        <img src={femaleProfiles} className="card-img-top" />
+        <img
+          src={femaleProfiles}
+          className="card-img-top"
+          alt="female profiles"
+        />
       )}
       <div className="card-body">
         <h5 className="card-title">Full Name: {employee.fullName}</h5>
